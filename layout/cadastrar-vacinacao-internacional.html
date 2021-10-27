@@ -92,7 +92,7 @@
           </a>
           <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./consultar-portador.html" class="nav-link active">
+                <a href="./consultar-portador.html" class="nav-link">
                   <i class="fas fa-search nav-icon"></i>
                   <p>Consultar Portador</p>
                 </a>
@@ -104,7 +104,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./vacinacao-internacional.html" class="nav-link">
+                <a href="./vacinacao-internacional.html" class="nav-link active">
                   <i class="fas fa-stethoscope nav-icon"></i>
                   <p>Vacinação internacional</p>
                 </a>
@@ -195,12 +195,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Painel portador CIVA</h1>
+          <h1 class="m-0">Cadastrar nova vacinação</h1>
         </div><!-- /.col --> 
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="consultar-portador.html">Voltar</a></li>
-            <li class="breadcrumb-item active">Consultar portador</li>
+            <li class="breadcrumb-item"><a href="./vacinacao-internacional.html">Voltar</a></li>
+            <li class="breadcrumb-item active">Vacinação internacional</li>
           </ol>
         </div>
       </div><!-- /.row -->
@@ -213,218 +213,112 @@
       <div class="container-fluid">
         <!---------------------------------------------------------------->
 
-  
-     
- 
-        <!-- DADOS PORTADOR -->
-        <div class="row">
-          <div class="col-12 mb-4">
-                     
-          <div class="card card-primary">
-          <div class="card-header">
+    <!-- DADOS VACINAÇÃO -->
+     <div class="row">
+       <div class="col-12">
+       <div class="card card-primary">
+        <div class="card-header">
           <h3 class="card-title">Dados portador</h3>
           </div>
-          <!-- /.card-header -->
-          <!-- form start -->
-          <form id="form-painel-portador">
-          <div class="p-2">
+         <div class="card-body">
           <div class="row">
             <div class="form-group col-xl-6">
                 <label for="">Nome</label>
-                <input type="email" class="form-control" id="name" value="Elis">
+                <input type="email" class="form-control" id="name" value="Elis" disabled="">
             </div>
             <div class="form-group col-xl-6">
                 <label for="">Sobrenome</label>
-                <input type="email" class="form-control" id="surname" value="Regina" >
+                <input type="email" class="form-control" id="surname" value="Regina" disabled="">
             </div>
           </div>
-          <div class="row">
-          <div class="form-group col-xl-6">
-            <label for="">Data de nascimento</label>
-            <input type="date" class="form-control" id="date-birth" placeholder="00/00/0000" value="1945-05-17">
-          </div>
-            <div class="form-group col-xl-6">
-                <label for="">Identidade</label>
-                <input type="text" class="form-control" id="identity" value="884.054.264-05" >
-            </div>
-          </div>
-          <div class="row">
-          <div class="form-group col-xl-12">
-            <label for="">Nacionalidade</label>
-            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option value="2" selected>Brasil</option>
-              <option value="3">Eua</option>
-              <option value="3">Canada</option>
-          </select>
-          </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="form-group col-xl-12">
-                <label for="">CEP</label>
-                <input type="text" class="form-control" id="postal-code" value="20520-054">
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-12">
-              <label for="">Logradouro</label>
-              <label for=""></label>
-              <input type="email" class="form-control" id="logrd-name" value="Rua Conde de Bonfim">
-            </div>
-          </div>
-          <div class="row">
-          <div class="form-group col-xl-6">
-            <label for="">Municipio</label>
-            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option>Niteroi</option>
-              <option>São Gonçalo</option>
-              <option selected>Rio de Janeiro</option>
-              <option>Itaborai</option>
-              <option>Marica</option>
-          </select>
-          </div>
-          
-          <div class="form-group col-xl-6">
-          <label for="">Bairro</label>
-          <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option>Niteroi</option>
-            <option>São Gonçalo</option>
-            <option selected>Rio de Janeiro</option>
-            <option>Itaborai</option>
-            <option>Marica</option>
-          </select>
-          </div>
-          </div>
-          <div class="row"> 
-            <div class="form-group col-12">
-              <label for="">Estado</label>
-                <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                  <option>Vila Isabel</option>
-                  <option selected>Tijuca</option>
-                  <option>São Cristovão</option>
-                  <option>Barra</option>
-                  <option>Botafogo</option>
-              </select>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="form-group col-xl-6">
-                <label for="">Contato</label>
-                  <input type="text" class="form-control" id="telf" value="21965138761">
-            </div>
-            <div class="form-group col-xl-6">
-                <label for="">Email</label>
-                <input type="email" class="form-control" id="email" value="elisregina@gmail.com">
-            </div>
-          </div>
-          <hr>
-<div class="d-flex justify-content-between align-items-center mx-3 mb-2">
-    <div id="toggle-user">
-      <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input bg-success" id="customSwitch2" checked>
-      <label class="custom-control-label" for="customSwitch2"></label><b class="text-primary">ATIVADO</b>
+         </div>
+       </div>
       </div>
     </div>
-    <a href="./cadastrar-vacinacao.html" class="btn btn-primary">Nova vacinação</a>
-</div>
-          </div>
-          </div>
-                    </div> 
-                            <!-- /.row -->
-                  </div>
-        
-
-        <!-- HISTORICO DE VACINAÇÃO -->
-        <div class="row">
-          <div class="col-12 mb-4">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Historico de vacinação</h3>
-        
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    
-                    <div class="input-group-append">
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>Vacina</th>
-                      <th>Láboratório</th>
-                      <th>Dose</th>
-                      <th>País</th>
-                      <th>Data</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody> 
-                    <tr> 
-                      <td>Coronavac</td>
-                      <td>Butantan</td>
-                      <td>1ª Dose</td>
-                      <td>Brasil</td>
-                      <td>20/03/2021</td>
-                      <td><a href="./painel-vacinacao.html"class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                    </tr>
-                    <tr> 
-                      <td>Coronavac</td>
-                      <td>Butantan</td>
-                      <td>1ª Dose</td>
-                      <td>Brasil</td>
-                      <td>20/03/2021</td>
-                      <td><a href="./painel-vacinacao.html"class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                    </tr>
-                    <tr> 
-                      <td>Coronavac</td>
-                      <td>Butantan</td>
-                      <td>1ª Dose</td>
-                      <td>Brasil</td>
-                      <td>20/03/2021</td>
-                      <td><a href="./painel-vacinacao.html"class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-          </div>
+ 
+ 
+    <!-- DADOS VACINAÇÃO -->
+    <form  class="row" id="form-cad-vacinacao">
+      <div class="col-12 mb-4">
+      <div class="card card-primary">
+      <div class="card-header">
+      <h3 class="card-title">Dados vacinação</h3>
+      </div>
+      <div class="card-body">
+      <!-- /.card-header -->
+      <!-- form start --> 
+      <div class="row">
+      <div class="form-group col-xl-6">
+        <label for="">Laboratório</label>
+        <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+          <option selected disabled>Selecionar</option>
+          <option>BioNTech</option>
+          <option >Oxford</option>
+          <option>Sputnik V</option> 
+      </select>
+      </div>
+      <div class="form-group col-xl-6">
+      <label for="">Vacina</label>
+      <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+        <option selected disabled>Selecionar</option>
+        <option>Pfizer</option>
+        <option>AstraZeneca</option>
+        <option>Johnson & Johnson</option>
+      </select>
+      </div>
+      </div>
+      <div class="row">
+      <div class="form-group col-xl-6">
+        <label for="">Número da dose</label>
+        <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+          <option selected disabled>Selecionar</option>
+          <option>1° Dose</option>
+          <option >2° Dose</option>
+          <option>Dose unica</option> 
+      </select>
+      </div>
+      <div class="form-group col-xl-6">
+        <label for="">Lote</label>
+        <input type="email" class="form-control" id="surname" placeholder="Ex: 123123-21">
+    </div>
+      </div>
+      <div class="row"> 
+        <div class="form-group col-12">
+          <label for="">Unidade da vacinação</label>
+            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+              <option selected disabled>Selecionar</option>
+              <option>Hospital Pan</option>
+              <option>Hospital Casa Italiano</option>
+              <option>Hospital Federal do Andaraí</option>
+          </select>
         </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </form>
+ 
+    <!-- /.row -->
+ 
+  
 
 
-
+        
         <div class="row">
             <div class="col-12 mb-4">
-              <button type="submit" class="btn btn-primary btn-lg" form="form-painel-portador">Salvar</button>
+              <button class="btn btn-primary btn-lg" form="form-cad-vacinacao">Cadastrar</button>
           </div>
         </div>
-
-
  
 
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
+
+
+        </div>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-
-
-
-  
- 
-
-
-
-
-
+  <!-- /.content- -->    
+      </div>
+      <!-- /.wrapper -->
 
 
 
@@ -433,9 +327,8 @@
     <!-- Default to the left -->
     <strong><img src="./../public/img/icon-civa-footer-darkblue.svg" alt="logo civa" width="70px">&nbsp by <a href="https://www.forsoftacademy.com.br/" target="_blank">Forsoft Academy</a></strong>
   </footer>
-</div>
 <!-- ./wrapper -->
-
+</body>
 <!-- REQUIRED SCRIPTS ------------------------------------------------------->
 
 <!-- jQuery -->
