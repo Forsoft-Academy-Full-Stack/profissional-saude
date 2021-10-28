@@ -231,7 +231,7 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="name">Nome</label>
-                                                <input type="text"  id="name"  name="name" class="form-control">
+                                                <input type="text" id="name" name="name" class="form-control">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="surname">Sobrenome</label>
@@ -241,8 +241,8 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="date-birth">Data de nascimento</label>
-                                                <input type="date" id="date-birth" name="date-birth" class="form-control" 
-                                                    placeholder="00/00/0000">
+                                                <input type="date" id="date-birth" name="date-birth"
+                                                    class="form-control" placeholder="00/00/0000">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="identity">Identidade</label>
@@ -252,7 +252,8 @@
                                         <div class="row">
                                             <div class="form-group col-12">
                                                 <label for="nationality">Nacionalidade</label>
-                                                <select id="nationality" name="nationality" class="select2 select2-hidden-accessible" style="width: 100%;"
+                                                <select id="nationality" name="nationality"
+                                                    class="select2 select2-hidden-accessible" style="width: 100%;"
                                                     tabindex="-1" aria-hidden="true">
                                                     <option selected disabled id="country-select">Selecionar</option>
                                                     <option value="2">Brasil</option>
@@ -265,40 +266,40 @@
                                         <div class="row">
                                             <div class="form-group col-12">
                                                 <label for="codigopostal">CEP</label>
-                                                <input type="text" id="codigopostal" name="codigopostal" class="form-control"
-                                                    maxlength="9" placeholder="20520-054">
+                                                <input type="text" id="codigopostal" name="codigopostal"
+                                                    class="form-control" maxlength="9" placeholder="20520-054">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="logradouro">Logradouro</label>
-                                                <label for="exampleFormControlInput1"></label>
-                                                <input type="text" id="logradouro"
-                                                name="logradouro"  class="form-control" placeholder="Rua Conde de Bonfim">
+                                                <label for="logradouro"></label>
+                                                <input type="text" id="logradouro" name="logradouro"
+                                                    class="form-control" placeholder="Rua Conde de Bonfim">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="numerorua">Número</label>
-                                                <input type="text" id="numerorua" name="numerorua" class="form-control" 
+                                                <input type="text" id="numerorua" name="numerorua" class="form-control"
                                                     placeholder="102">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-12">
                                                 <label for="complemento">Complemento</label>
-                                                <input type="text" id="complemento"
-                                                name="complemento" class="form-control"  placeholder="Casa">
+                                                <input type="text" id="complemento" name="complemento"
+                                                    class="form-control" placeholder="Casa">
                                             </div>
                                         </div>
                                         <div class="row">
 
                                             <div class="form-group col-xl-6">
                                                 <label for="bairro">Bairro</label>
-                                                <input type="text" id="bairro" name="bairro" class="form-control" 
+                                                <input type="text" id="bairro" name="bairro" class="form-control"
                                                     placeholder="Tijuca">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="cidade">Cidade</label>
-                                                <input type="text" id="cidade" name="cidade" class="form-control" 
+                                                <input type="text" id="cidade" name="cidade" class="form-control"
                                                     placeholder="Rio de Janeiro">
                                             </div>
                                         </div>
@@ -376,41 +377,60 @@
 
                 let form = $("#form-meus-dados");
                 $("#cadastro").click(function () {
-                    $.get("", form.serialize(), (data, status) => {
-                        if (status === 'success') {
-                            //$('#exampleModal').modal('hide');
-                            //$('#exampleModal2').modal('show');
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Cadastro realizado com sucesso!',
-                                text: "Código CIVA: " + gerarCodigoCiva(),
-                                confirmButtonText: 'Finalizar',
-                                confirmButtonColor: '#007bff'
-                            });
 
-                            console.log("Dados enviados com sucesso :) !");
-                            // Limpando os campos do modal de alteração e confirmação de senha após o envio
-                            //$('#exampleModal').find("#confirm-password").val("");
-                            //$('#exampleModal').find("#message-text").val("");
-                        } else {
-                            // Abrir Modal informando o erro
-                            // Por enquanto mostrar=ndo somente com o console.log()
-                            console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
-                            //$('#exampleModal').modal('hide');
+                    if (tratar_campos()) {
+                        $.get("", form.serialize(), (data, status) => {
+                            if (status === 'success') {
+                                //$('#exampleModal').modal('hide');
+                                //$('#exampleModal2').modal('show');
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Cadastro realizado com sucesso!',
+                                    text: "Código CIVA: " + gerarCodigoCiva(),
+                                    confirmButtonText: 'Finalizar',
+                                    confirmButtonColor: '#007bff'
+                                }).then(() => {
+                                    $("#name").val("");
+                                    $("#surname").val("");
+                                    $("#date-birth").val("");
+                                    $("#identity").val("");
+                                    $("#nationality").val("");
+                                    $("#codigopostal").val("");
+                                    $("#logradouro").val("");
+                                    $("#numerorua").val("");
+                                    $("#numerorua").val("");
+                                    $("#complemento").val("");
+                                    $("#bairro").val("");
+                                    $("#cidade").val("");
+                                    $("#estado").val("");
+                                    $("#telf").val("");
+                                    $("#email").val("");
+                                });
 
-                            Swal.fire({
-                                icon: 'error',
-                                title: '',
-                                text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
-                                confirmButtonText: 'Finalizar'
-                                //confirmButtonColor: '#007bff'
-                            });
+                                console.log("Dados enviados com sucesso :) !");
+                                // Limpando os campos do modal de alteração e confirmação de senha após o envio
+                                //$('#exampleModal').find("#confirm-password").val("");
+                                //$('#exampleModal').find("#message-text").val("");
+                            } else {
+                                // Abrir Modal informando o erro
+                                // Por enquanto mostrar=ndo somente com o console.log()
+                                console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
+                                //$('#exampleModal').modal('hide');
 
-                            //$('#exampleModal').find("#confirm-password").val("");
-                            //$('#exampleModal').find("#message-text").val("");
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: '',
+                                    text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
+                                    confirmButtonText: 'Finalizar'
+                                    //confirmButtonColor: '#007bff'
+                                });
 
-                        }
-                    });
+                                //$('#exampleModal').find("#confirm-password").val("");
+                                //$('#exampleModal').find("#message-text").val("");
+
+                            }
+                        });
+                    }
                 });
             });
 
