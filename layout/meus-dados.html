@@ -24,7 +24,7 @@
     <!-- Estilo pagina -->
     <link rel="stylesheet" href="./../public/dist/css/adminlte.min.css">
 
-    <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js"></script> 
+    <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
 </head>
 
@@ -386,8 +386,8 @@
 
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                                data-target="#exampleModal" data-whatever="@getbootstrap">Salvar</button>
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle=""
+                                data-target="#exampleModal" id="salvar" data-whatever="@getbootstrap">Salvar</button>
                         </div>
                     </div>
 
@@ -406,7 +406,7 @@
                         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form id="validar-senha">
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label">Explique o motivo das
                                     alterações:</label>
@@ -421,7 +421,7 @@
                     </div>
                     <div class="modal-footer d-flex justify-content-center ">
                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger" id="save">Avançar</button>
+                        <button type="button" class="btn btn-danger" id="avancar">Avançar</button>
                     </div>
                 </div>
             </div>
@@ -477,86 +477,80 @@
     <script src="./../public/assets/js/searchCep.js"></script>
     <!-- TODOS PAISES SELECT NACIONALIDADE -->
     <script type="module" src="./../public/assets/js/getCountry.js"></script>
+    <script src="./../public/assets/js/meus-dados.js"></script>
 
     <script>
         $(function () {
             $('.select2').select2()
         });
 
-        //let pathServlet = "/civa/controlMeusDados";
+
         let form = $("#form-meus-dados");
-        $("#save").click(function () {
 
+        $("#salvar").click(function () {
+            if (tratar_campos()) {
+                $('#exampleModal').modal('show');
+                $("#avancar").click(function () {
+                    let tratarS = tratarSenha();
+                    if (tratarS) {
+                        $.get("", form.serialize(), (data, status) => {
+                            if (status === 'success') {
+                                $('#exampleModal').modal('hide');
+                                //$('#exampleModal2').modal('show');
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Solicitação enviada com sucesso!',
+                                    text: 'Envio realizado',
+                                    confirmButtonText: 'Finalizar',
+                                    confirmButtonColor: '#007bff'
+                                });
 
-            /* $.post(pathServlet, form.serialize(), (data, status) => {
-             if (status === 'success') {
-             console.log(data);
-             $('#exampleModal').modal('hide');
-             //$('#exampleModal2').modal('show');
-             console.log("Dados enviados com sucesso :) !");
-             
-             Swal.fire({
-             icon: 'success',
-             title: '',
-             text: 'Solicitação enviada com sucesso!',
-             confirmButtonText: 'Finalizar',
-             confirmButtonColor: '#007bff'
-             });
-             
-             } else {
-             // Abrir Modal informando o erro
-             // Por enquanto mostrar=ndo somente com o console.log()
-             console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
-             
-             Swal.fire({
-             icon: 'error',
-             title: '',
-             text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
-             confirmButtonText: 'Finalizar'
-             //confirmButtonColor: '#007bff'
-             });
-             
-             }
-             });*/
+                                console.log("Dados enviados com sucesso :) !");
+                                // Limpando os campos do modal de alteração e confirmação de senha após o envio
+                                $('#exampleModal').find("#confirm-password").val("");
+                                $('#exampleModal').find("#message-text").val("");
+                            } else {
+                                // Abrir Modal informando o erro
+                                // Por enquanto mostrar=ndo somente com o console.log()
+                                console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
+                                $('#exampleModal').modal('hide');
 
-            // Requisição Ajax sendo enviada para a própria página.
-            // Para enviar para o servlet usar o bloco de código acima e inserir o nome adequado do servlet.
-            // Em que é usado o caminho "/civa/nomeDoServlet".
-            $.get("", form.serialize(), (data, status) => {
-                if (status === 'success') {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Ops.. Algum erro ocorreu \n seus dados não foram enviados :(!',
+                                    text: 'Tente novamente.',
+                                    confirmButtonText: 'Finalizar'
+                                    //confirmButtonColor: '#007bff'
+                                });
+
+                                $('#exampleModal').find("#confirm-password").val("");
+                                $('#exampleModal').find("#message-text").val("");
+                            }
+                        });
+
+                    } else if (!tratarS) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Todos os campos precisam ser preenchidos!',
+                            confirmButtonColor: '#007bff'
+                        })
+                    }
+                });
+
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Todos os campos precisam ser preenchidos!',
+                    confirmButtonColor: '#007bff'
+                }).then(() => {
                     $('#exampleModal').modal('hide');
-                    //$('#exampleModal2').modal('show');
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Solicitação enviada com sucesso!',
-                        text: 'Envio realizado',
-                        confirmButtonText: 'Finalizar',
-                        confirmButtonColor: '#007bff'
-                    });
-
-                    console.log("Dados enviados com sucesso :) !");
-                    // Limpando os campos do modal de alteração e confirmação de senha após o envio
-                    $('#exampleModal').find("#confirm-password").val("");
-                    $('#exampleModal').find("#message-text").val("");
-                } else {
-                    // Abrir Modal informando o erro
-                    // Por enquanto mostrar=ndo somente com o console.log()
-                    console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
-                    $('#exampleModal').modal('hide');
-
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Ops.. Algum erro ocorreu \n seus dados não foram enviados :(!',
-                        text: 'Tente novamente.',
-                        confirmButtonText: 'Finalizar'
-                        //confirmButtonColor: '#007bff'
-                    });
-
-                    $('#exampleModal').find("#confirm-password").val("");
-                    $('#exampleModal').find("#message-text").val("");
-                }
-            });
+                });
+            }
         });
+
     </script>
 </body>
+
 </html>
