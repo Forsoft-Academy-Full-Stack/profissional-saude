@@ -438,15 +438,15 @@
                             }
                         });
                     } else {
-                        if (erro) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Todos os campos precisam ser preenchidos!',
-                                confirmButtonColor: '#007bff'
-                            })
 
-                        }
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Todos os campos precisam ser preenchidos!',
+                            confirmButtonColor: '#007bff'
+                        })
+
+
                     }
                 });
             });
