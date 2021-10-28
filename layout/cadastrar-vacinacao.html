@@ -190,11 +190,8 @@
     </aside>
 
 
-
-
     <!-- Content Wrapper. Contains page content -------------------------->
     <div class="content-wrapper">
-
 
       <!-- Content Header (Page header) -->
       <div class="content-header">
@@ -213,12 +210,10 @@
         </div><!-- /.container-fluid -->
       </div>
 
-
       <!-- Main content -->
       <div class="content">
         <div class="container-fluid">
           <!---------------------------------------------------------------->
-
 
           <!-- DADOS PORTADOR -->
           <div class="row">
@@ -245,10 +240,8 @@
             </div>
           </div>
 
-
-
           <!-- DADOS VACINAÇÃO -->
-          <form class="row" id="form-painel-portador" action="">
+          <form class="row" id="form-painel-portador" >
             <div class="col-12 mb-4">
               <div class="card card-primary">
                 <div class="card-header">
@@ -262,7 +255,7 @@
                       <label for="laboratorio">Laboratório</label>
                       <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
                         aria-hidden="true" name="laboratorio" id="laboratorio">
-                        <option selected disabled>Selecionar</option>
+                        <option selected disabled value="">Selecionar</option>
                         <option>BioNTech</option>
                         <option>Oxford</option>
                         <option>Sputnik V</option>
@@ -271,8 +264,8 @@
                     <div class="form-group col-xl-6">
                       <label for="vacina">Vacina</label>
                       <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
-                        aria-hidden="true" name="vacina" id="vacina">
-                        <option selected disabled>Selecionar</option>
+                        aria-hidden="true" name="vacina" id="vacina" >
+                        <option selected disabled value="">Selecionar</option>
                         <option>Pfizer</option>
                         <option>AstraZeneca</option>
                         <option>Johnson & Johnson</option>
@@ -284,7 +277,7 @@
                       <label for="numerodoses">Número da dose</label>
                       <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
                         aria-hidden="true" name="numerodoses" id="numerodoses">
-                        <option selected disabled>Selecionar</option>
+                        <option selected disabled value="">Selecionar</option>
                         <option>1° Dose</option>
                         <option>2° Dose</option>
                         <option>Dose unica</option>
@@ -300,7 +293,7 @@
                       <label for="unidade">Unidade da vacinação</label>
                       <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
                         aria-hidden="true" id="unidade" name="unidade">
-                        <option selected disabled>Selecionar</option>
+                        <option selected disabled value="">Selecionar</option>
                         <option>Hospital Pan</option>
                         <option>Hospital Casa Italiano</option>
                         <option>Hospital Federal do Andaraí</option>
@@ -313,17 +306,11 @@
             <!-- /.row -->
           </form>
 
-
-
-
           <div class="row">
             <div class="col-12 mb-4">
-              <button class="btn btn-primary btn-lg" form="form-painel-portador">Cadastrar</button>
+              <button type="button" class="btn btn-primary btn-lg" id="cadastro">Cadastrar</button>
             </div>
           </div>
-
-
-
 
           <!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -331,17 +318,6 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Main Footer -->
@@ -367,10 +343,74 @@
   <script src="./../public/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="./../public/dist/js/demo.js"></script>
+  <script src="./../public/assets/js/cadastrar-vacinacao.js"></script>
 
   <script>
     $(function () {
-      $('.select2').select2()
+      $('.select2').select2();
+
+      let form = $("#form-painel-portador");
+      let valor;
+      $("#cadastro").click(function () {
+
+        if (tratar_campos()) {
+          $.get("", form.serialize(), (data, status) => {
+            if (status === 'success') {
+              //$('#exampleModal').modal('hide');
+              //$('#exampleModal2').modal('show');
+              Swal.fire({
+                icon: 'success',
+                title: 'Cadastro de vacinação realizado com sucesso!',
+                confirmButtonColor: '#007bff'
+              }).then(() => {
+
+                $("#lote").val("");
+        
+                // Mudando a posição do select
+                //seleciona o valor da posição desejada
+                valor = $("#laboratorio option:eq(1)").val();
+                //seleciona no select2 e disapara o evento
+                $('#laboratorio').val(valor).trigger('change');
+
+                valor = $("#vacina option:eq(1)").val();
+                //seleciona no select2 e disapara o evento
+                $('#vacina').val(valor).trigger('change');
+
+                valor = $("#numerodoses option:eq(1)").val();
+                //seleciona no select2 e disapara o evento
+                $('#numerodoses').val(valor).trigger('change');
+
+                valor = $("#unidade option:eq(1)").val();
+                //seleciona no select2 e disapara o evento
+                $('#unidade').val(valor).trigger('change');
+
+              });
+
+              console.log("Dados enviados com sucesso :) !");
+              // Limpando os campos do modal de alteração e confirmação de senha após o envio
+              //$('#exampleModal').find("#confirm-password").val("");
+              //$('#exampleModal').find("#message-text").val("");
+            } else {
+              // Abrir Modal informando o erro
+              // Por enquanto mostrar=ndo somente com o console.log()
+              console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
+              //$('#exampleModal').modal('hide');
+
+              Swal.fire({
+                icon: 'error',
+                title: '',
+                text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
+                confirmButtonText: 'Finalizar'
+                //confirmButtonColor: '#007bff'
+              });
+
+              //$('#exampleModal').find("#confirm-password").val("");
+              //$('#exampleModal').find("#message-text").val("");
+
+            }
+          });
+        }
+      });
     });
   </script>
 </body>
