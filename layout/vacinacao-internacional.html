@@ -42,7 +42,6 @@
       </ul>
     </nav>
     <!-- /.navbar ------------------------------------------------------->
-
     <!-- MENU Main Sidebar Container ------------------------------------>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
@@ -63,8 +62,6 @@
             <a href="#" class="d-block">Frank Sinatra</a>
           </div>
         </div>
-
-
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -181,9 +178,6 @@
       <!-- /.sidebar ------------------------------------------------------>
     </aside>
 
-
-
-
     <!-- Content Wrapper. Contains page content -------------------------->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -204,21 +198,13 @@
       </div>
       <!-- /.content-header ---------------------------------------------->
 
-
-
-
-
-
-
       <!-- Main content -->
       <div class="content">
         <div class="container-fluid">
           <!---------------------------------------------------------------->
-
-
           <div class="row">
             <div class="col-12 mb-4">
-              <form action="">
+              <form >
                 <div class="input-group">
                   <input type="search" class="form-control form-control-lg"
                     placeholder="Insira o codigo civa do portador">
@@ -231,7 +217,6 @@
               </form>
             </div>
           </div>
-
 
           <!-- DADOS PORTADOR -->
           <div class="row mb-3">
@@ -250,36 +235,36 @@
                     <div class="row">
                       <div class="form-group col-xl-6">
                         <label for="identity">Código CIVA</label>
-                        <input type="text" class="form-control" id="identity" value="USA1223456789" disabled>
+                        <input type="text" id="identity" name="identity" class="form-control"  value="USA1223456789" readonly>
                       </div>
                     </div>
                     <hr>
                     <div class="row">
                       <div class="form-group col-xl-6">
                         <label for="name">Nome</label>
-                        <input type="text" class="form-control" id="name" value="Bryan" disabled>
+                        <input type="text" id="name" name="name" class="form-control" value="Bryan" readonly>
                       </div>
                       <div class="form-group col-xl-6">
                         <label for="surname">Sobrenome</label>
-                        <input type="text" class="form-control" id="surname" value="Adams" disabled>
+                        <input type="text" id="surname" name="surname"  class="form-control" value="Adams" readonly>
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="form-group col-xl-6">
                         <label for="date-birth">Data de Nascimento</label>
-                        <input type="date" class="form-control" id="date-birth" value="1945-05-17" disabled>
+                        <input type="date" id="date-birth" name="date-birth" class="form-control" value="1945-05-17" readonly>
                       </div>
                       <div class="form-group col-xl-6">
-                        <label for="postal-code">Passaporte</label>
-                        <input type="text" class="form-control" id="postal-code" value="8697894894" disabled>
+                        <label for="possaporte">Passaporte</label>
+                        <input type="text" id="possaporte" name="possaporte" class="form-control" value="8697894894" readonly>
                       </div>
 
                     </div>
                     <div class="row">
                       <div class="form-group col-12">
-                        <label for="logrd">País</label>
-                        <input type="text" class="form-control" id="logrd" value="EUA" disabled>
+                        <label for="pais">País</label>
+                        <input type="text" id="pais" name="pais" class="form-control" value="EUA" readonly>
                       </div>
                     </div>
                   </div>
@@ -288,7 +273,6 @@
               </div>
             </div>
           </div>
-
 
           <!-- TABELA VACINAS -->
           <div class="row">
@@ -349,14 +333,9 @@
             </div>
           </div>
 
-
-
-
-
-
           <div class="col-12 row">
             <div class="mb-3 mt-3">
-              <a href="./cadastrar-vacinacao-internacional.html" class="btn btn-primary btn-lg">Cadastrar vacinação</a>
+              <button type="button" id="cadastro" class="btn btn-primary btn-lg">Cadastrar vacinação</button>
             </div>
           </div>
 
@@ -366,15 +345,6 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
-
-
-
-
-
-
-
-
 
     <!-- Main Footer -->
     <footer class="main-footer">
@@ -388,6 +358,7 @@
   <!-- REQUIRED SCRIPTS -->
 
   <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.all.min.js"></script>
   <script src="./../public/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="./../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -395,6 +366,52 @@
   <script src="./../public/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="./../public/dist/js/demo.js"></script>
+
+  <script src="./../public/assets/js/cadastrar_portador -vacinacao-internacional.js"></script>
+  
+
+  <script>
+    let form = $("#form-meus-dados");
+    $("#cadastro").click(function () {
+
+      if (tratar_campos()) {
+        $.get("", form.serialize(), (data, status) => {
+          if (status === 'success') {
+            //$('#exampleModal').modal('hide');
+            //$('#exampleModal2').modal('show');
+            Swal.fire({
+              icon: 'success',
+              title: 'Cadastro realizado com sucesso!',
+              confirmButtonText: 'Finalizar',
+              confirmButtonColor: '#007bff'
+            });
+
+            console.log("Dados enviados com sucesso :) !");
+            // Limpando os campos do modal de alteração e confirmação de senha após o envio
+            //$('#exampleModal').find("#confirm-password").val("");
+            //$('#exampleModal').find("#message-text").val("");
+          } else {
+            // Abrir Modal informando o erro
+            // Por enquanto mostrar=ndo somente com o console.log()
+            console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
+            //$('#exampleModal').modal('hide');
+
+            Swal.fire({
+              icon: 'error',
+              title: '',
+              text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
+              confirmButtonText: 'Finalizar'
+              //confirmButtonColor: '#007bff'
+            });
+
+            //$('#exampleModal').find("#confirm-password").val("");
+            //$('#exampleModal').find("#message-text").val("");
+
+          }
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
