@@ -367,7 +367,7 @@
         <!--Script-->
         <script src="./../public/assets/js/cadastrar_portador.js"></script>
         <!--Sweet Alert-->
-    
+
 
         <script>
             $(function () {
@@ -393,15 +393,15 @@
                                     $("#surname").val("");
                                     $("#date-birth").val("");
                                     $("#identity").val("");
-                                    
+
                                     // Mudando a posição do select
                                     $('#nationality').select2();
                                     //seleciona o valor da posição desejada
                                     let valor = $("#nationality option:eq(1)").val();
                                     //seleciona no select2 e disapara o evento
                                     $('#nationality').val(valor).trigger('change');
-                                  
-                                                                   
+
+
                                     $("#codigopostal").val("");
                                     $("#logradouro").val("");
                                     $("#numerorua").val("");
@@ -437,6 +437,16 @@
 
                             }
                         });
+                    } else {
+                        if (erro) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Todos os campos precisam ser preenchidos!',
+                                confirmButtonColor: '#007bff'
+                            })
+
+                        }
                     }
                 });
             });
