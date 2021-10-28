@@ -216,7 +216,7 @@
 								<div class="card-header">
 									<h3 class="card-title">Dados portador</h3>
 								</div>
-								<form id="form-painel-portador" class="card-body" action="">
+								<form id="form-painel-portador" class="card-body">
 									<div class="row">
 										<div class="form-group col-xl-6">
 											<label for="nome">Nome</label>
@@ -409,8 +409,7 @@
 
 					<div class="row">
 						<div class="col-12 mb-4">
-							<button type="button" id="salvar" class="btn btn-primary btn-lg"
-								form="form-painel-portador">Salvar</button>
+							<button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button>
 						</div>
 					</div>
 
@@ -444,6 +443,8 @@
 	<script src="./../public/dist/js/adminlte.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="./../public/dist/js/demo.js"></script>
+	<script src="./../public/assets/js/painel_portador.js"></script>
+
 
 	<script>
 		$(function () {
@@ -454,41 +455,51 @@
 		let form = $("#form-painel-portador");
 
 		$("#salvar").click(function () {
-			$.get("", form.serialize(), (data, status) => {
-				if (status === 'success') {
-					//$('#exampleModal').modal('hide');
-					//$('#exampleModal2').modal('show');
-					Swal.fire({
-						icon: 'success',
-						title: 'Dados alterados com sucesso!',
-						text: "Alteração realizada.",
-						confirmButtonText: 'Finalizar',
-						confirmButtonColor: '#007bff'
-					});
 
-					console.log("Dados enviados com sucesso :) !");
-					// Limpando os campos do modal de alteração e confirmação de senha após o envio
-					//$('#exampleModal').find("#confirm-password").val("");
-					//$('#exampleModal').find("#message-text").val("");
-				} else {
-					// Abrir Modal informando o erro
-					// Por enquanto mostrar=ndo somente com o console.log()
-					console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
-					$('#exampleModal').modal('hide');
+			if (tratar_campos()) {
+				$.get("", form.serialize(), (data, status) => {
+					if (status === 'success') {
+						//$('#exampleModal').modal('hide');
+						//$('#exampleModal2').modal('show');
+						Swal.fire({
+							icon: 'success',
+							title: 'Dados alterados com sucesso!',
+							text: "Alteração realizada.",
+							confirmButtonText: 'Finalizar',
+							confirmButtonColor: '#007bff'
+						});
 
-					Swal.fire({
-						icon: 'error',
-						title: '',
-						text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
-						confirmButtonText: 'Finalizar'
-						//confirmButtonColor: '#007bff'
-					});
+						console.log("Dados enviados com sucesso :) !");
+						// Limpando os campos do modal de alteração e confirmação de senha após o envio
+						//$('#exampleModal').find("#confirm-password").val("");
+						//$('#exampleModal').find("#message-text").val("");
+					} else {
+						// Abrir Modal informando o erro
+						// Por enquanto mostrar=ndo somente com o console.log()
+						console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
+						$('#exampleModal').modal('hide');
 
-					$('#exampleModal').find("#confirm-password").val("");
-					$('#exampleModal').find("#message-text").val("");
+						Swal.fire({
+							icon: 'error',
+							title: '',
+							text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
+							confirmButtonText: 'Finalizar'
+							//confirmButtonColor: '#007bff'
+						});
 
-				}
-			});
+						$('#exampleModal').find("#confirm-password").val("");
+						$('#exampleModal').find("#message-text").val("");
+
+					}
+				});
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Todos os campos precisam ser preenchidos!',
+					confirmButtonColor: '#007bff'
+				})
+			}
 		});
 
 	</script>
