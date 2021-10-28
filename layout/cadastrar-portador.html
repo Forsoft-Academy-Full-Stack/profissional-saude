@@ -394,7 +394,14 @@
                                     $("#surname").val("");
                                     $("#date-birth").val("");
                                     $("#identity").val("");
-                                    $("#nationality").val("");
+                                    
+                                    // Mudando a posição do select 
+                                    //seleciona o valor da posição desejada
+                                    let valor = $("#nationality option:eq(0)").val();
+                                    //seleciona no select2 e disapara o evento
+                                    $('#nationality').val(valor).trigger('change');
+ 
+                                   
                                     $("#codigopostal").val("");
                                     $("#logradouro").val("");
                                     $("#numerorua").val("");
