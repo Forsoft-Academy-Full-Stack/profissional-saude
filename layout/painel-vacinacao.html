@@ -213,122 +213,128 @@
       <div class="container-fluid">
         <!---------------------------------------------------------------->
 
-  
-     
- 
-        <!-- DADOS PORTADOR -->
+
+<!-- DADOS PORTADOR -->
+<div class="row">
+  <div class="col-12 mb-4">
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 class="card-title">Dados portador</h3>
+      </div>
+      <div class="card-body">
         <div class="row">
-          <div class="col-12 mb-4">
-                     
-          <div class="card card-primary">
-          <div class="card-header">
-          <h3 class="card-title">Dados vacinação</h3>
-          </div>
-          <!-- /.card-header -->
-          <!-- form start -->
-          <form id="form-painel-portador">
-          <div class="p-2">
-          <div class="row">
-            <div class="form-group col-xl-6">
-                <label for="">Nome</label>
-                <input type="email" class="form-control" id="name" value="Elis" disabled>
-            </div>
-            <div class="form-group col-xl-6">
-                <label for="">Sobrenome</label>
-                <input type="email" class="form-control" id="surname" value="Regina" disabled>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-          <div class="form-group col-xl-12">
-            <label for="">ID vacinação</label>
-            <input type="text" class="form-control" value="5649841" disabled>
-          </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-xl-6">
-              <label for="">Vacina</label>
-            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option value="2" selected>CoronaVac</option>
-              <option value="3">Pfizer</option>
-              <option value="3">AstraZeneca</option>
-            </select>
-            </div>
-            <div class="form-group col-xl-6">
-              <label for="">Laboratório</label>
-            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option value="2" selected>Sinovac</option>
-              <option value="3">Oxford</option>
-              <option value="3">Sputinik V</option>
-            </select>
-          </div>
-          </div>
-          <div class="row">
-           
-          </div>
-          <div class="row">
-           <div class="form-group col-xl-6">
-            <label for="">Dose</label>
-            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option value="2" selected>2° Dose</option>
-              <option value="3">1° Dose</option>
-              <option value="3">Dose unica</option>
-            </select>
-            </div>
           <div class="form-group col-xl-6">
-            <label for="">Data de aplicação</label>
-            <input type="date" class="form-control" value="2021-03-17" disabled>
+              <label for="">Nome</label>
+              <input type="email" class="form-control" id="name" value="Elis" disabled>
           </div>
-            
-          </div>
-          <hr>
-          <div class="row">
-            <div class="form-group col-xl-12">
-              <label for="">País</label>
-              <input type="text" class="form-control" id="identity" value="Brasil" disabled>
-          </div>
-          </div>
-          <div class="row">
           <div class="form-group col-xl-6">
-            <label for="">ID unidade</label>
-            <input type="text" class="form-control" value="6518842" disabled>
+              <label for="">Sobrenome</label>
+              <input type="email" class="form-control" id="surname" value="Regina" disabled>
           </div>
-            <div class="form-group col-xl-6">
-                <label for="">Unidade de vacinação</label>
-                <input type="text" class="form-control" id="identity" value="Hospital Pan" disabled>
-            </div>
-          </div>
-          <div class="row">
-          <div class="form-group col-xl-6">
-            <label for="">Código CIVA profissional</label>
-            <input type="text" class="form-control" value="BRA55123456789" disabled>
-          </div>
-            <div class="form-group col-xl-6">
-                <label for="">Lote</label>
-                <input type="text" class="form-control" id="identity" value="12412412-21" >
-            </div>
-          </div>
- 
-          <hr>
-<div class="d-flex justify-content-between align-items-center mx-3 mb-2">
-    <div id="toggle-user">
-      <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input bg-success" id="customSwitch2" checked>
-      <label class="custom-control-label" for="customSwitch2"></label><b class="text-primary">ATIVADO</b>
+        </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+
+<!-- DADOS VACINAÇÃO -->
+<form class="row" id="form-painel-vacinacao" action="">
+  <div class="col-12 mb-4">
+  <div class="card card-primary">
+  <div class="card-header">
+  <h3 class="card-title">Dados vacinação</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+  <div class="row">
+  <div class="form-group col-xl-12">
+    <label for="idvacinacao">ID vacinação</label>
+    <input type="text" class="form-control" id="idvacinacao" name="idvacinacao" value="5649841" disabled>
+  </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-xl-6">
+      <label for="vacina">Vacina</label>
+      <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="vacina" name="vacina">
+      <option value="2" selected>CoronaVac</option>
+      <option value="3">Pfizer</option>
+      <option value="3">AstraZeneca</option>
+    </select>
+    </div>
+    <div class="form-group col-xl-6">
+      <label for="laboratorio">Laboratório</label>
+    <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="laboratorio" name="laboratorio">
+      <option value="2" selected>Sinovac</option>
+      <option value="3">Oxford</option>
+      <option value="3">Sputinik V</option>
+    </select>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-xl-6">
+    <label for="dose">Dose</label>
+    <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="dose" name="dose">
+      <option value="2" selected>2° Dose</option>
+      <option value="3">1° Dose</option>
+      <option value="3">Dose unica</option>
+    </select>
+    </div>
+  <div class="form-group col-xl-6">
+    <label for="dataaplicacao">Data de aplicação</label>
+    <input type="date" class="form-control" value="2021-03-17" id="dataaplicacao" name="dataaplicacao" disabled>
+  </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="form-group col-xl-12">
+      <label for="pais">País</label>
+      <input type="text" class="form-control" id="pais" name="pais" value="Brasil" disabled>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-xl-6">
+    <label for="idunidade">ID unidade</label>
+    <input type="text" class="form-control" id="idunidade" name="idunidade" value="6518842" disabled>
+  </div>
+    <div class="form-group col-xl-6">
+        <label for="unidade">Unidade de vacinação</label>
+        <input type="text" class="form-control" id="unidade" name="unidade" value="Hospital Pan" disabled>
+    </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-xl-6">
+    <label for="codigociva">Código CIVA profissional</label>
+    <input type="text" class="form-control" id="codigociva" name="codigociva" value="BRA55123456789" disabled>
+  </div>
+    <div class="form-group col-xl-6">
+        <label for="lote">Lote</label>
+        <input type="text" class="form-control" id="lote" name="lote" value="12412412-21" >
+    </div>
+  </div>
+  <hr>
+  <div class="d-flex justify-content-between align-items-center">
+<div id="toggle-user">
+<div class="custom-control custom-switch">
+<input type="checkbox" class="custom-control-input bg-success" id="customSwitch2" checked>
+<label class="custom-control-label" for="customSwitch2"></label><b class="text-primary">ATIVADO</b>
 </div>
 </div>
 </div>
-</div> 
+</div>
+</div>
+</div>
+</form>
 <!-- /.row -->
-</div>
+
+
 
 
 <div class="row">
   <div class="col-12 mb-4">
-    <button class="btn btn-primary btn-lg" form="form-painel-portador">Salvar</button>
-</div>
+    <button class="btn btn-primary btn-lg" form="form-painel-vacinacao">Salvar</button>
+  </div>
 </div>
 
 

@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
  
-
+ 
   <!-- Select2 -->
   <link rel="stylesheet" href="./../public/plugins/select2/css/select2.min.css">
 
@@ -214,80 +214,101 @@
         <!---------------------------------------------------------------->
 
   
-     
- 
-        <!-- DADOS PORTADOR -->
-        <form  class="row">
-          <div class="col-12 mb-4">
-                     
-          <div class="card card-primary">
-          <div class="card-header">
-          <h3 class="card-title">Dados portador</h3>
-          </div>
-          <!-- /.card-header -->
-          <!-- form start -->
-          <form id="form-painel-portador">
-          <div class="p-2"> 
-          <div class="row">
-          <div class="form-group col-xl-6">
-            <label for="">Laboratório</label>
-            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option selected disabled>Selecionar</option>
-              <option>BioNTech</option>
-              <option >Oxford</option>
-              <option>Sputnik V</option> 
-          </select>
-          </div>
-          <div class="form-group col-xl-6">
-          <label for="">Vacina</label>
-          <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option selected disabled>Selecionar</option>
-            <option>Pfizer</option>
-            <option>AstraZeneca</option>
-            <option>Johnson & Johnson</option>
-          </select>
-          </div>
-          </div>
-          <div class="row">
-          <div class="form-group col-xl-6">
-            <label for="">Número da dose</label>
-            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option selected disabled>Selecionar</option>
-              <option>1° Dose</option>
-              <option >2° Dose</option>
-              <option>Dose unica</option> 
-          </select>
-          </div>
-          <div class="form-group col-xl-6">
-            <label for="">Lote</label>
-            <input type="email" class="form-control" id="surname" placeholder="Ex: 123123-21">
+<!-- DADOS PORTADOR -->
+<div class="row">
+  <div class="col-12"> 
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Dados portador</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-xl-6">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: Frank" value="Elis" disabled>
         </div>
-          </div>
-          <div class="row"> 
-            <div class="form-group col-12">
-              <label for="">Unidade da vacinação</label>
-                <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                  <option selected disabled>Selecionar</option>
-                  <option>Hospital Pan</option>
-                  <option>Hospital Casa Italiano</option>
-                  <option>Hospital Federal do Andaraí</option>
-              </select>
-            </div>
-          </div>
+        <div class="form-group col-xl-6">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Ex: Sinatra" value="Regina" disabled>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+<!-- DADOS VACINAÇÃO -->
+<form class="row" id="form-painel-portador" action="">
+  <div class="col-12 mb-4">   
+  <div class="card card-primary">
+  <div class="card-header">
+  <h3 class="card-title">Dados vacinção</h3>
+  </div>
+  <!-- /.card-header -->
+  <!-- form start -->
+  <div class="card-body">
+  <div class="row">
+  <div class="form-group col-xl-6">
+    <label for="laboratorio">Laboratório</label>
+    <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="laboratorio" id="laboratorio">
+      <option selected disabled>Selecionar</option>
+      <option>BioNTech</option>
+      <option >Oxford</option>
+      <option>Sputnik V</option> 
+  </select>
+  </div>
+  <div class="form-group col-xl-6">
+  <label for="vacina">Vacina</label>
+  <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="vacina" id="vacina">
+    <option selected disabled>Selecionar</option>
+    <option>Pfizer</option>
+    <option>AstraZeneca</option>
+    <option>Johnson & Johnson</option>
+  </select>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-xl-6">
+    <label for="numerodoses">Número da dose</label>
+    <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="numerodoses" id="numerodoses">
+      <option selected disabled>Selecionar</option>
+      <option>1° Dose</option>
+      <option >2° Dose</option>
+      <option>Dose unica</option> 
+  </select>
+  </div>
+  <div class="form-group col-xl-6">
+    <label for="lote">Lote</label>
+    <input type="text" class="form-control" name="lote" id="lote" placeholder="Ex: 123123-21">
+</div>
+  </div>
+  <div class="row"> 
+    <div class="form-group col-12">
+      <label for="unidade">Unidade da vacinação</label>
+        <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" id="unidade" name="unidade">
+          <option selected disabled>Selecionar</option>
+          <option>Hospital Pan</option>
+          <option>Hospital Casa Italiano</option>
+          <option>Hospital Federal do Andaraí</option>
+      </select>
+    </div>
+  </div> 
 </div>
 </div>
 </div> 
-    <!-- /.row -->
+<!-- /.row -->
 </form>
   
 
 
 
-        <div class="row">
-            <div class="col-12 mb-4">
-              <button type="submit" class="btn btn-primary btn-lg" form="form-painel-portador">Cadastrar</button>
-          </div>
-        </div>
+<div class="row">
+  <div class="col-12 mb-4">
+    <button class="btn btn-primary btn-lg" form="form-painel-portador">Cadastrar</button>
+</div>
+</div>
 
 
  
