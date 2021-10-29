@@ -15,8 +15,6 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
 
-
-
   <!-- Select2 -->
   <link rel="stylesheet" href="./../public/plugins/select2/css/select2.min.css">
 
@@ -25,7 +23,23 @@
 
   <!-- Estilo pagina -->
   <link rel="stylesheet" href="./../public/dist/css/adminlte.min.css">
-  <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+  <!-- REQUIRED SCRIPTS ------------------------------------------------------->
+
+  <!-- jQuery -->
+  <script src="../public/plugins/jquery/jquery.min.js" defer></script>
+  <!-- Bootstrap 4 -->
+  <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js" async></script>
+  <!-- Select2 -->
+  <script src="../public/plugins/select2/js/select2.full.min.js" defer></script>
+
+  <!-- AdminLTE App -->
+  <script src="../public/dist/js/adminlte.min.js" defer></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../public/dist/js/demo.js" defer></script>
+
+  <script src="../public/assets/js/cadastrar-vacinacao-internacional.js" defer></script>
+  <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js" async></script>
 
 </head>
 
@@ -187,9 +201,6 @@
       <!-- /.sidebar ------------------------------------------------------>
     </aside>
 
-
-
-
     <!-- Content Wrapper. Contains page content -------------------------->
     <div class="content-wrapper">
 
@@ -254,8 +265,8 @@
                   <div class="row">
                     <div class="form-group col-xl-6">
                       <label for="laboratorio">Laboratório</label>
-                      <select class="select2 select2-hidden-accessible" id="laboratorio" name="laboratorio" style="width: 100%;" tabindex="-1"
-                        aria-hidden="true">
+                      <select class="select2 select2-hidden-accessible" id="laboratorio" name="laboratorio"
+                        style="width: 100%;" tabindex="-1" aria-hidden="true">
                         <option selected disabled value="">Selecionar</option>
                         <option>BioNTech</option>
                         <option>Oxford</option>
@@ -264,8 +275,8 @@
                     </div>
                     <div class="form-group col-xl-6">
                       <label for="vacina">Vacina</label>
-                      <select class="select2 select2-hidden-accessible" id="vacina" name="vacina" style="width: 100%;" tabindex="-1"
-                        aria-hidden="true">
+                      <select class="select2 select2-hidden-accessible" id="vacina" name="vacina" style="width: 100%;"
+                        tabindex="-1" aria-hidden="true">
                         <option selected disabled value="">Selecionar</option>
                         <option>Pfizer</option>
                         <option>AstraZeneca</option>
@@ -276,8 +287,8 @@
                   <div class="row">
                     <div class="form-group col-xl-6">
                       <label for="dose">Número da dose</label>
-                      <select class="select2 select2-hidden-accessible" id="dose" name="dose" style="width: 100%;" tabindex="-1"
-                        aria-hidden="true">
+                      <select class="select2 select2-hidden-accessible" id="dose" name="dose" style="width: 100%;"
+                        tabindex="-1" aria-hidden="true">
                         <option selected disabled value="">Selecionar</option>
                         <option>1° Dose</option>
                         <option>2° Dose</option>
@@ -292,8 +303,8 @@
                   <div class="row">
                     <div class="form-group col-12">
                       <label for="unidade">Unidade da vacinação</label>
-                      <select class="select2 select2-hidden-accessible" id="unidade" name="unidade" style="width: 100%;" tabindex="-1"
-                        aria-hidden="true">
+                      <select class="select2 select2-hidden-accessible" id="unidade" name="unidade" style="width: 100%;"
+                        tabindex="-1" aria-hidden="true">
                         <option selected disabled value="">Selecionar</option>
                         <option>Hospital Pan</option>
                         <option>Hospital Casa Italiano</option>
@@ -308,18 +319,11 @@
 
           <!-- /.row -->
 
-
-
-
-
           <div class="row">
             <div class="col-12 mb-4">
               <button class="btn btn-primary btn-lg" id="cadastrar">Cadastrar</button>
             </div>
           </div>
-
-
-
 
         </div>
         <!-- /.content -->
@@ -335,22 +339,6 @@
           href="https://www.forsoftacademy.com.br/" target="_blank">Forsoft Academy</a></strong>
     </footer>
     <!-- ./wrapper -->
-</body>
-<!-- REQUIRED SCRIPTS ------------------------------------------------------->
-
-<!-- jQuery -->
-<script src="../public/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Select2 -->
-<script src="../public/plugins/select2/js/select2.full.min.js"></script>
-
-<!-- AdminLTE App -->
-<script src="../public/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../public/dist/js/demo.js"></script>
-
-<script src="../public/assets/js/cadastrar-vacinacao-internacional.js"></script>
 </body>
 
 </html>
