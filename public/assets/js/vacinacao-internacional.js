@@ -1,6 +1,6 @@
 tratar_campos = function () {
     let erro = false;
-    let campos = ["nome", "sobrenome", "datanascimento", "documento", "nacionalidade", "codigociva", "codigopostal", "logradouro", "numerorua", "complemento", "bairro", "cidade", "estado", "contato", "email"];
+    let campos = ["identity", "name", "surname", "date-birth", "possaporte", "pais"];
 
     for (i = 0; i < campos.length; i++) {
         if (document.getElementById(campos[i]).value == '') {
