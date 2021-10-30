@@ -1,34 +1,16 @@
-tratar_campos = function () {
-    let erro = false;
-    let campos = ["laboratorio", "vacina", "numerodoses", "lote", "unidade"];
-
-    for (i = 0; i < campos.length; i++) {
-        if (document.getElementById(campos[i]).value == '') {
-            erro = true;
-        }
-
-        if (erro) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Todos os campos precisam ser preenchidos!',
-                confirmButtonColor: '#007bff'
-            })
-
-        }
-    }
-    return !erro;
-
-}
-
 $('.select2').select2();
 
 let form = $("#form-painel-portador");
+let arrayCampos = ["laboratorio", "vacina", "numerodoses",
+                   "lote", "unidade", "date-birth", "identity"];
 let valor;
-$("#cadastro").click(function () {
 
-    if (tratar_campos()) {
+$("#cadastro").click(function () {
+    console.log("Entrou")
+    if (tratar_campos(arrayCampos)) {
+        console.log("Tratados")
         $.get("", form.serialize(), (data, status) => {
+            console.log("Entrou 2")
             if (status === 'success') {
                 //$('#exampleModal').modal('hide');
                 //$('#exampleModal2').modal('show');
@@ -83,5 +65,15 @@ $("#cadastro").click(function () {
 
             }
         });
+    }else {
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Todos os campos precisam ser preenchidos!',
+            confirmButtonColor: '#007bff'
+        })
+
+
     }
 });

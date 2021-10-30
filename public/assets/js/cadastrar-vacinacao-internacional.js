@@ -1,22 +1,11 @@
-tratar_campos = function () {
-    let erro = false;
-    let campos = ["laboratorio", "vacina", "dose", "lote", "unidade"];
-
-    for (i = 0; i < campos.length; i++) {
-        if (document.getElementById(campos[i]).value == '') {
-            erro = true;
-        }
-    }
-    return !erro;
-
-}
-
 $('.select2').select2();
 
+let arrayCampos = ["laboratorio", "vacina", "dose", "lote", "unidade"];
 let form = $("#form-cad-vacinacao");
+
 $("#cadastrar").click(() => {
 
-    if (tratar_campos()) {
+    if (tratar_campos(arrayCampos)) {
         $.get("", form.serialize(), (data, status) => {
             if (status === 'success') {
                 //$('#exampleModal').modal('hide');
@@ -39,10 +28,6 @@ $("#cadastrar").click(() => {
                     confirmButtonText: 'Finalizar',
                     confirmButtonColor: '#007bff'
                 });
-
-                //$('#exampleModal').find("#confirm-password").val("");
-                //$('#exampleModal').find("#message-text").val("");
-
             }
         });
     } else {

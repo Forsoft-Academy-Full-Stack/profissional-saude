@@ -21,7 +21,18 @@
 
   <!-- Estilo pagina -->
   <link rel="stylesheet" href="./../public/dist/css/adminlte.min.css">
-  <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.all.min.js" defer></script>
+  <script src="./../public/plugins/jquery/jquery.min.js" defer></script>
+  <!-- Bootstrap 4 -->
+  <script src="./../public/plugins/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <!-- AdminLTE App -->
+  <script src="./../public/dist/js/adminlte.min.js" defer></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="./../public/dist/js/demo.js" defer></script>
+  <script src="../public/assets/js/default.js" defer></script>
+  <script src="../public/assets/js/vacinacao-internacional.js" defer></script>
 
 </head>
 
@@ -356,63 +367,6 @@
   </div>
   <!-- ./wrapper -->
 
-  <!-- REQUIRED SCRIPTS -->
-
-  <!-- jQuery -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.all.min.js"></script>
-  <script src="./../public/plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="./../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="./../public/dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="./../public/dist/js/demo.js"></script>
-  <script src="../public/assets/js/vacinacao-internacional.js"></script>
-
-  
-
-  <script>
-    let form = $("#vacinacao-internacional");
-    $("#cadastro").click(function () {
-
-      if (tratar_campos()) {
-        $.get("", form.serialize(), (data, status) => {
-          if (status === 'success') {
-            //$('#exampleModal').modal('hide');
-            //$('#exampleModal2').modal('show');
-            Swal.fire({
-              icon: 'success',
-              title: 'Cadastro realizado com sucesso!',
-              confirmButtonText: 'Finalizar',
-              confirmButtonColor: '#007bff'
-            });
-
-            console.log("Dados enviados com sucesso :) !");
-            // Limpando os campos do modal de alteração e confirmação de senha após o envio
-            //$('#exampleModal').find("#confirm-password").val("");
-            //$('#exampleModal').find("#message-text").val("");
-          } else {
-            // Abrir Modal informando o erro
-            // Por enquanto mostrar=ndo somente com o console.log()
-            console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
-            //$('#exampleModal').modal('hide');
-
-            Swal.fire({
-              icon: 'error',
-              title: '',
-              text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
-              confirmButtonText: 'Finalizar'
-              //confirmButtonColor: '#007bff'
-            });
-
-            //$('#exampleModal').find("#confirm-password").val("");
-            //$('#exampleModal').find("#message-text").val("");
-
-          }
-        });
-      }
-    });
-  </script>
 </body>
 
 </html>

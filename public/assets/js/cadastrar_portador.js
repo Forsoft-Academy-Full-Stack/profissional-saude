@@ -1,22 +1,14 @@
-tratar_campos = function () {
-    let erro = false;
-    let campos = ["name", "surname", "date-birth", "identity", "nationality", "codigopostal", "logradouro", "numerorua", "complemento", "bairro", "cidade", "estado", "telf", "email"];
-
-    for (i = 0; i < campos.length; i++) {
-        if (document.getElementById(campos[i]).value == '') {
-            erro = true;
-        }
-    }
-    return !erro;
-
-}
-
 $('.select2').select2();
+
+let arrayCampos = ["name", "surname", "date-birth",
+                   "identity", "nationality", "codigopostal",
+                   "logradouro", "numerorua", "complemento",
+                   "bairro", "cidade", "estado", "telf", "email"];
 
 let form = $("#form-meus-dados");
 $("#cadastro").click(function () {
 
-    if (tratar_campos()) {
+    if (tratar_campos(arrayCampos)) {
         $.get("", form.serialize(), (data, status) => {
             if (status === 'success') {
                 //$('#exampleModal').modal('hide');

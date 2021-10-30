@@ -23,7 +23,31 @@
 
 	<!-- Estilo pagina -->
 	<link rel="stylesheet" href="./../public/dist/css/adminlte.min.css">
-	<script src="../public/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+	<!-- REQUIRED SCRIPTS ------------------------------------------------------->
+
+	<!-- jQuery -->
+	<script src="./../public/plugins/jquery/jquery.min.js" defer></script>
+	<!-- Bootstrap 4 -->
+	<script src="./../public/plugins/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+	<!-- Select2 -->
+	<script src="./../public/plugins/select2/js/select2.full.min.js" defer></script>
+
+
+	<!-- AdminLTE App -->
+	<script src="./../public/dist/js/adminlte.min.js" defer></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="./../public/dist/js/demo.js" defer></script>
+	<script src="../public/assets/js/default.js" defer></script>
+	<script src="./../public/assets/js/painel_portador.js" defer></script>
+
+	<!-- AXIOS -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+	<!-- PESQUISAR CEP -->
+	<script src="./../public/assets/js/searchCep.js" defer></script>
+	<!-- TODOS PAISES SELECT NACIONALIDADE -->
+	<script type="module" src="./../public/assets/js/getCountry.js" defer></script>
+	<script src="../public/plugins/sweetalert2/sweetalert2.all.min.js" defer></script>
 
 </head>
 
@@ -428,89 +452,6 @@
 		</footer>
 	</div>
 	<!-- ./wrapper -->
-
-	<!-- REQUIRED SCRIPTS ------------------------------------------------------->
-
-	<!-- jQuery -->
-	<script src="./../public/plugins/jquery/jquery.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="./../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- Select2 -->
-	<script src="./../public/plugins/select2/js/select2.full.min.js"></script>
-
-
-	<!-- AdminLTE App -->
-	<script src="./../public/dist/js/adminlte.min.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="./../public/dist/js/demo.js"></script>
-	<script src="./../public/assets/js/painel_portador.js"></script>
-
-
-	<script>
-		$(function () {
-			$('.select2').select2()
-		});
-
-		// Pegando o elemento form da página
-		let form = $("#form-painel-portador");
-
-		$("#salvar").click(function () {
-
-			if (tratar_campos()) {
-				$.get("", form.serialize(), (data, status) => {
-					if (status === 'success') {
-						//$('#exampleModal').modal('hide');
-						//$('#exampleModal2').modal('show');
-						Swal.fire({
-							icon: 'success',
-							title: 'Dados alterados com sucesso!',
-							text: "Alteração realizada.",
-							confirmButtonText: 'Finalizar',
-							confirmButtonColor: '#007bff'
-						});
-
-						console.log("Dados enviados com sucesso :) !");
-						// Limpando os campos do modal de alteração e confirmação de senha após o envio
-						//$('#exampleModal').find("#confirm-password").val("");
-						//$('#exampleModal').find("#message-text").val("");
-					} else {
-						// Abrir Modal informando o erro
-						// Por enquanto mostrar=ndo somente com o console.log()
-						console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
-						$('#exampleModal').modal('hide');
-
-						Swal.fire({
-							icon: 'error',
-							title: '',
-							text: 'Ops... Algum erro ocorreu e seus dados não foram enviados :(!',
-							confirmButtonText: 'Finalizar'
-							//confirmButtonColor: '#007bff'
-						});
-
-						$('#exampleModal').find("#confirm-password").val("");
-						$('#exampleModal').find("#message-text").val("");
-
-					}
-				});
-			} else {
-				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'Todos os campos precisam ser preenchidos!',
-					confirmButtonColor: '#007bff'
-				})
-			}
-		});
-
-	</script>
-
-	<!-- AXIOS -->
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<!-- PESQUISAR CEP -->
-	<script src="./../public/assets/js/searchCep.js"></script>
-	<!-- TODOS PAISES SELECT NACIONALIDADE -->
-	<script type="module" src="./../public/assets/js/getCountry.js"></script>
-
 </body>
 
 </html>
