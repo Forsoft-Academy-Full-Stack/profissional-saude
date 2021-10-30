@@ -7,7 +7,7 @@ async function pegarPaises(idInputPais) {
 
     // EXIBIR NO INPUT NACIONALIDADE
     for (let x = 0; x < paises.length; x++) {
-        console.log(paises)
+ 
         const option = document.createElement('option');
         option.value = paises[x].code;
         option.innerText = paises[x].name;
