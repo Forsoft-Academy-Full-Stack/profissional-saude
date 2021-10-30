@@ -1,3 +1,13 @@
+// Variaveis que serão usadas pelo swal alert nas outras páginas
+// Ao importar aqui não é necessário copiar para os demais aquivos.
+let icon;
+let title;
+let text;
+let confirmButtonText;
+let confirmButtonCollor;
+let callback = () => { };
+
+
 tratar_campos = (campos) => {
     let erro = false;
   
@@ -40,6 +50,19 @@ function swalAlertError(title, text, callback){
         confirmButtonColor: '#007bff'
     }).then(callback);
 }
+
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-start',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+})
 
 
 

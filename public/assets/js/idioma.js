@@ -7,44 +7,24 @@ $("#salvar-alteracao").click(function () {
 
     $.get("", form.serialize(), (data, status) => {
         if (status === 'success') {
-
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-start',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'success',
-                title: 'Idioma alterado'
-            })
-
+            idiomaAlterado();
         } else {
-            console.log("Ops... Algum erro ocorreu e seus dados não foram enviados :(");
-
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-start',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })
-
-            Toast.fire({
-                icon: 'error',
-                title: 'Idioma não foi alterado'
-            })
+            erroAlterarIdioma();
         }
     });
 });
 
+
+function idiomaAlterado(){
+    Toast.fire({
+        icon: 'success',
+        title: 'Idioma alterado'
+    })
+}
+
+function erroAlterarIdioma(){
+    Toast.fire({
+        icon: 'error',
+        title: 'Idioma não foi alterado'
+    })
+}

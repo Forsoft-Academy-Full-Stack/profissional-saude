@@ -1,12 +1,5 @@
 $('.select2').select2();
 
-let icon;
-let title;
-let text;
-let confirmButtonText;
-let confirmButtonCollor;
-let callback = () => { };
-
 let arrayCampos = ["name", "surname", "date-birth",
                    "identity", "nationality", "codigopostal",
                    "logradouro", "numerorua", "complemento",
@@ -35,7 +28,6 @@ $("#cadastro").click(function () {
         swalAlertError(title, text, callback);
     }
 });
-
 
 
 function gerarCodigoCiva() {
