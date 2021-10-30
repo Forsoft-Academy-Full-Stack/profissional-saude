@@ -10,3 +10,42 @@ tratar_campos = (campos) => {
     return !erro;
 
 }
+
+function swalAlert(icon, title, text, confirmButtonText, confirmButtonCollor, callback){
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: text,
+        confirmButtonText: confirmButtonText,
+        confirmButtonColor: confirmButtonCollor
+    }).then(callback);
+}
+
+function swalAlertSuccess(title, text, callback){
+    Swal.fire({
+        icon: 'success',
+        title: title,
+        text: text,
+        confirmButtonText: 'Finalizar',
+        confirmButtonColor: '#007bff'
+    }).then(callback);
+}
+
+function swalAlertError(title, text, callback){
+    Swal.fire({
+        icon: 'error',
+        title: title,
+        text: text,
+        confirmButtonText: 'Finalizar',
+        confirmButtonColor: '#007bff'
+    }).then(callback);
+}
+
+
+
+
+
+
+
+
+
