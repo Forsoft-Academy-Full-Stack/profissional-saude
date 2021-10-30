@@ -6,7 +6,7 @@ $("#cadastro").click(function () {
     if (tratar_campos(campos)) {
         
         $.get("", form.serialize(), (data, status) => {
-            if (!status === 'success') {
+            if (status === 'success') {
                 title = 'Cadastro realizado com sucesso';
                 text = "Vacinação Internacional cadastrada.";
                 swalAlertSuccess(title, text, callback);
