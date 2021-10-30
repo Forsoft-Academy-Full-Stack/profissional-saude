@@ -35,3 +35,5 @@ $("#salvar").click(function () {
     }
 });
 
+
+pegarPaises('nacionalidade');

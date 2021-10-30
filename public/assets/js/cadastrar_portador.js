@@ -59,3 +59,5 @@ function limparCamposCadastroPortador() {
     $("#telf").val("");
     $("#email").val("");
 }
+
+pegarPaises("nationality");

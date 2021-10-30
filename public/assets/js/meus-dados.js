@@ -51,3 +51,5 @@ function limparCamposConfirmacao() {
     $('#exampleModal').find("#confirm-password").val("");
     $('#exampleModal').find("#message-text").val("");
 }
+
+pegarPaises("nacionalidade");

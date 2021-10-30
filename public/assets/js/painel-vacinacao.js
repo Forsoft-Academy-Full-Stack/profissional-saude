@@ -25,4 +25,3 @@ $("#salvar").click(function () {
         swalAlertError(title, text, callback);
     }
 });
-
